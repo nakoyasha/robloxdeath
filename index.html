@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ROBLOX DEATH!!!</title>
+    <style>
+        body {
+            background-color: #171a1c;
+            font-size: 16pt;
+            font-family: Tahoma, sans-serif;
+            color: white;
+        }
+
+        .container {
+            background-color: #22282a;
+            margin: auto;
+            margin-top: 3em;
+            padding: 12em;
+            width: 50%;
+        }
+
+        a:active {
+            color: #a6c8d9;
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+        }
+
+        a:visited {
+            color: #a6c8d9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        Roblox will <i>probably</i> die on January 19th 2038, which is in...
+        <p id="demo"></p>
+        <p style="font-size:8pt">...unless they switch to 64-bit</p>
+    </div>
+
+    <div class="footer">
+        <p>totally not shamelessly stolen from <a href="https://nyahh.net/osudeath/">nyahh.net</a> :3</p>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var countDate = new Date("January 19, 2038 12:00:00")
+    var countDownDate = countDate.getTime();
+
+    function setTime() {
+        var date = new Date();
+        var now = date.getTime()
+        var distance = countDownDate - now;
+
+        // the clever among u will realize that i stole this straight from w3schools i think lol
+        // and the even more clever would have read th footer 
+
+        var years = countDate.getFullYear() - date.getFullYear()
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("demo").innerHTML = years + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds...";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "roblox is now dead (or saved)";
+        }
+    }
+
+    setTime();
+    var run = setInterval(setTime, 1000);
+</script>
